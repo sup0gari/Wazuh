@@ -5,6 +5,19 @@ SIEM（セキュリティ情報イベント管理）とXDR（拡張検知と対�
 どのログをWazuhマネージャーに送るか決めるファイル  
 `C:\Program Files (x86)\ossec-agent\ossec.conf`
 
+## ホワイトリスト登録
+```xml
+<!-- /var/ossec/etc/rules/local_rules.xml -->
+<group name="windows,sysmon,">
+  <rule id="100005" level="0"> <!-- 0=検知しない -->
+    <if_sid>92039</if_sid> 
+    <field name="win.eventdata.user">ユーザー</field>
+    <field name="win.eventdata.image">コマンド</field>
+    <description>Whitelist: 任意</description>
+  </rule>
+</group>
+```
+
 ## 自作のIoC登録
 下記のパスにIoCファイルを作成  
 `/var/ossec/etc/lists/`  
