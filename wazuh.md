@@ -2,6 +2,9 @@
 どのログをWazuhマネージャーに送るか決めるファイル  
 `C:\Program Files (x86)\ossec-agent\ossec.conf`
 
+## 設定ファイルチェック
+`/var/ossec/bin/wazuh-analysisd -t`
+
 ## JSONのフィールドについて
 `data.win.eventdata.image`: 実際に実行されたバイナリのフルパス  
 `data.win.eventdata.commandLine` : 実行時の引数（オプション）を含む全コマンド  
