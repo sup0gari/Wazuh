@@ -2,6 +2,19 @@
 どのログをWazuhマネージャーに送るか決めるファイル  
 `C:\Program Files (x86)\ossec-agent\ossec.conf`
 
+## JSONのフィールドについて
+`data.win.eventdata.image`: 実際に実行されたバイナリのフルパス  
+`data.win.eventdata.commandLine` : 実行時の引数（オプション）を含む全コマンド  
+`data.win.eventdata.hashes` : ファイルのハッシュ値（SHA256など）  
+`data.win.eventdata.integrityLevel` : プロセスの権限レベル（System, High, Mediumなど）  
+`data.win.eventdata.parentImage` : このプロセスを起動した「親」のフルパス  
+`data.win.eventdata.parentCommandLine` : 親プロセスがどのような引数で実行されていたか  
+`data.win.eventdata.user` : 実行したユーザー名  
+`data.win.eventdata.currentDirectory` : コマンドが実行されたディレクトリ  
+`data.win.system.eventID` : SysmonのイベントID  
+`rule.id` : Wazuhがどのルールにヒットさせたかを示すID  
+`rule.mitre.id` : MITRE ATT&CK（T1087など）
+
 ## ホワイトリスト登録
 ```xml
 <!-- /var/ossec/etc/rules/local_rules.xml -->
