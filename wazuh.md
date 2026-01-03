@@ -1,7 +1,11 @@
 # Wazuhとは
 SIEM（セキュリティ情報イベント管理）とXDR（拡張検知と対応）の機能を統合した、オープンソースの包括的なサイバーセキュリティプラットフォーム。
 
-## IoCリストの作成
+## ossec.conf
+どのログをWazuhマネージャーに送るか決めるファイル  
+`C:\Program Files (x86)\ossec-agent\ossec.conf`
+
+## 自作のIoC登録
 下記のパスにIoCファイルを作成  
 `/var/ossec/etc/lists/`  
 下記のファイルに作成したファイルを登録  
