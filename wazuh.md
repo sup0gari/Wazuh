@@ -1,3 +1,20 @@
+## 起動コマンド（マネージャー）
+```bash
+sudo systemctl start wazuh-manager
+sudo systemctl start wazuh-indexer
+sudo systemctl start wazuh-dashboard
+sudo systemctl status wazuh-manager wazuh-indexer wazuh-dashboard # 確認コマンド
+```
+
+## 起動コマンド（エージェント）
+```powershell
+Start-Service -Name Wazuh
+Stop-Service -Name Wazuh
+Restart-Service -Name Wazuh
+Get-Service -Name Wazuh # 確認コマンド
+Get-Content "C:\Program Files (x86)\ossec-agent\ossec.log" -Tail 20 # ログから通信状態確認
+```
+
 ## ossec.conf
 どのログをWazuhマネージャーに送るか決めるファイル  
 `C:\Program Files (x86)\ossec-agent\ossec.conf`
