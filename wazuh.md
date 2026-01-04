@@ -35,39 +35,25 @@ Get-Content "C:\Program Files (x86)\ossec-agent\ossec.log" -Tail 20 # ログか�
 `rule.id` : Wazuhがどのルールにヒットさせたかを示すID  
 `rule.mitre.id` : MITRE ATT&CK（T1087など）
 
-## ホワイトリスト登録
+## ルールのタグについて
+```bash
+rule: idとlevelを属性として持つ。idは100000~120000がユーザーとして使える。levelは0~15まである。
+if_sid: 指定したルールIDが一致した場合のみ評価する。
+field: ログ内の特定の項目を検査。type="pcre2"で正規表現使用可。
+match: ログメッセージ、または指定フィールド内の文字列検索。
+description: アラートのタイトルとして出力。
+mitre: TIDとの紐付け。
+```
+
+### 設定ファイル
+`/var/ossec/etc/rules/local_rules.xml`
 ```xml
-<!-- /var/ossec/etc/rules/local_rules.xml -->
-<!-- type="pcre2" これで正規表現使用可 -->
 <group name="windows,sysmon,">
   <rule id="100005" level="0"> <!-- 0=検知しない -->
     <if_sid>92039</if_sid> 
-    <field name="win.eventdata.user">ユーザー</field>
-    <field name="win.eventdata.image">コマンド</field>
-    <description>Whitelist: 任意</description>
-  </rule>
-</group>
-```
-
-## 自作のIoC登録
-下記のパスにIoCファイルを作成  
-`/var/ossec/etc/lists/`  
-下記のファイルに作成したファイルを登録  
-`/var/ossec/etc/ossec.conf`
-```conf
-<ruleset>
-  <list>etc/lists/<ファイル名></list>
-</ruleset>
-```
-検知ルールの作成  
-```xml
-<!-- /var/ossec/etc/rules/local_rules.xml -->
-<group name="sysmon,ioc_detection,">
-  <rule id="100001" level="10"> <!-- 自作は100000台 -->
-    <if_sid>61603</if_sid> <list field="win.eventdata.destinationIp" lookup="address_match_key">etc/lists/blacklist-ips</list>
-    <description>IoC Detection: </description>
-    <mitre>
-      <id>T1071</id> </mitre>
+    <field name="win.eventdata.user">administrator</field>
+    <field name="win.eventdata.image">cmd.exe</field>
+    <description>アラートタイトル</description>
   </rule>
 </group>
 ```
