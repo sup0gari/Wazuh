@@ -29,8 +29,3 @@ echo "-------------------------------------------------------"
 echo -e "\e[36m[!] All services are up!\e[0m"
 echo -e "\e[36m[!] Access the dashboard at: https://$IP_ADDR\e[0m"
 echo "-------------------------------------------------------"
-
-# パスを通す。
-# sudo mv wazuh-start.sh /usr/local/bin/
-# sudo chown root:root /usr/local/bin/wazuh-start.sh
-# sudo chmod +x /usr/local/bin/wazuh-start.sh
