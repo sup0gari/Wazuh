@@ -71,5 +71,6 @@ Get-Content "C:\Program Files (x86)\ossec-agent\ossec.log" -Tail 20 # ログか�
   </rule>
 </group>
 ```
-再起動  
-`sudo systemctl restart wazuh-manager`
+
+## ログテスト
+`/var/ossec/bin/wazuh-logtest`
