@@ -1,8 +1,8 @@
 ## 起動コマンド（マネージャー）
 ```bash
-sudo systemctl start wazuh-manager
-sudo systemctl start wazuh-indexer
-sudo systemctl start wazuh-dashboard
+sudo systemctl start wazuh-manager.service
+sudo systemctl start wazuh-indexer.service
+sudo systemctl start wazuh-dashboard.service
 sudo systemctl status wazuh-manager wazuh-indexer wazuh-dashboard # 確認コマンド
 ```
 
