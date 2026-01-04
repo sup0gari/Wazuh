@@ -6,6 +6,12 @@ SIEM（セキュリティ情報イベント管理）とXDR（拡張検知と対�
 
 # wazuh-start.sh
 このシェルスクリプトは自動でwazuhサービスを起動するスクリプトです。root権限が必要です。
+```bash
+# パスの通し方
+sudo mv wazuh-start.sh /usr/local/bin/
+sudo chown root:root /usr/local/bin/wazuh-start.sh
+sudo chmod +x /usr/local/bin/wazuh-start.sh
+```
 
 # 免責事項
 本リポジトリに掲載されている情報は、情報セキュリティの教育および学習、並びに正当な防御手法の向上を目的としています。
