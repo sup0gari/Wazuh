@@ -5,7 +5,7 @@ Wazuhの使い方の備忘録
 SIEM（セキュリティ情報イベント管理）とXDR（拡張検知と対応）の機能を統合した、オープンソースの包括的なサイバーセキュリティプラットフォーム。
 
 # wazuh-start.sh
-このシェルスクリプトは自動でwazuhサービスを起動するスクリプトです。root権限が必要です。
+このシェルスクリプトはwazuhサービスを起動する。root権限が必要。
 ```bash
 # パスの通し方
 sudo mv wazuh-start.sh /usr/local/bin/
